@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>🎪 Arch Linux Circus: Where Sanity Comes to Die 🎭</title>
+    <meta
+      name="description"
+      content="This site is so cool, Google doesn't deserve to index it"
+    />
+    <meta
+      name="keywords"
+      content="arch linux, memes, chaos, definitely not SEO friendly"
+    />
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, noimageindex, nomediaindex, noodp, nosnippet, notranslate, noydir"
+    />
+    <meta name="googlebot" content="noodp" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="author" content="A very sleep-deprived developer" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://example.com/definitely-not-this-page" />
+    <style>
+      body {
+        background-color: #1a1b26;
+        color: #a9b1d6;
+        font-family: "Courier New", monospace;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M9.75 2c-1.556 0-1.556 2.562 0 2.562h6.312v10.75L2.469 22.344 6.53 30l13.657-7.094 7.094 7.094H32V24.594l-7.094-7.094L30.75 4.562h-4.406l-5.844 12.938V4.562h2.562V2H9.75z' fill='%23bb9af7'/%3E%3C/svg%3E"),
+          auto;
+      }
+      .element {
+        position: absolute;
+        background-color: rgba(36, 40, 59, 0.8);
+        border-radius: 15px;
+        padding: 15px;
+        max-width: 450px;
+        transform: rotate(var(--rotation));
+        transition: all 0.3s ease;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 1.5em;
+      }
+      .element:hover {
+        transform: scale(1.1) rotate(var(--rotation));
+        z-index: 100;
+        background-color: rgba(36, 40, 59, 0.95);
+      }
+      .meme {
+        max-width: 300px;
+        transform: rotate(var(--rotation));
+      }
+      #pacman {
+        position: fixed;
+        width: 75px;
+        height: 75px;
+        background-color: yellow;
+        border-radius: 50%;
+        clip-path: polygon(100% 0, 75% 50%, 100% 100%, 0 100%, 0 0);
+        z-index: 1000;
+      }
+      #matrix-rain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .firework {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        animation: explode 1s ease-out forwards;
+      }
+      @keyframes explode {
+        0% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(30);
+          opacity: 0;
+        }
+      }
+      #loading-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- If you're reading this, you're too curious for your own good -->
+    <div
+      id="chaos-container"
+      style="position: relative; width: 100vw; height: 400vh"
+    >
+      <!-- Elements will be dynamically added here -->
+    </div>
+    <div id="pacman"></div>
+    <canvas id="matrix-rain"></canvas>
+    <!-- Congratulations! You've found the secret message. Your prize is... nothing! -->
+
+    <script>
+      console.log(
+        "%cStop! 🛑",
+        "color: red; font-size: 50px; font-weight: bold; text-shadow: 3px 3px 0 rgb(217,31,38)",
+      );
+      console.log(
+        "%cThis is a browser feature intended for developers. If someone told you to copy-paste something here to enable a feature or 'hack' someone's account, it is a scam and will give them access to your account.",
+        "font-size: 18px;",
+      );
+      console.log(
+        "%cBut since you're here already...",
+        "font-size: 16px; font-style: italic;",
+      );
+      console.log("%cEnjoy this ASCII art of Tux:", "font-size: 14px;");
+      console.log(`
+         .--.
+        |o_o |
+        |:_/ |
+       //   \\ \\
+      (|     | )
+     /'\\_   _/\`\\
+     \\___)=(___/
+      `);
+
+      const chaosContainer = document.getElementById("chaos-container");
+      const pacman = document.getElementById("pacman");
+      const elements = [
+        {
+          type: "text",
+          content:
+            "I use Arch btw... and my life is as stable as my system after a full upgrade! 🎢",
+        },
+        {
+          type: "text",
+          content:
+            "Backend wizardry is my game. I make servers dance and databases sing! 🕺💃",
+        },
+        {
+          type: "text",
+          content:
+            "Data engineering: Because someone has to make sense of all this chaos! 📊🌪️",
+        },
+        {
+          type: "text",
+          content:
+            "Python: My favorite language. It's like English, but the computer understands it! 🐍",
+        },
+        {
+          type: "text",
+          content:
+            "Node.js: Async all the things! Because who needs sleep when you have callbacks? 😴",
+        },
+        {
+          type: "text",
+          content:
+            "My latest project: A machine learning model that predicts when I'll next break my Arch install. Spoiler: It's always 'soon'.",
+        },
+        {
+          type: "text",
+          content:
+            "Skills: Typing 'sudo' faster than my own name, reading error logs like bedtime stories, and explaining to my cat why my code doesn't work.",
+        },
+        {
+          type: "text",
+          content:
+            "I don't always test my code, but when I do, I do it in production.",
+        },
+        {
+          type: "text",
+          content:
+            "My code doesn't have bugs, it just develops random features.",
+        },
+        {
+          type: "text",
+          content: "I'm not arguing, I'm just explaining why I'm right.",
+        },
+        { type: "text", content: "Keep calm and pacman -Syu" },
+        { type: "text", content: "There's no place like 127.0.0.1" },
+        {
+          type: "image",
+          content: "/static/images/meme1.jpg",
+          alt: "Arch Linux meme 1",
+        },
+        {
+          type: "image",
+          content: "/static/images/meme2.jpg",
+          alt: "Arch Linux meme 2",
+        },
+        {
+          type: "image",
+          content: "/static/images/meme3.png",
+          alt: "Arch Linux meme 3",
+        },
+        {
+          type: "image",
+          content: "/static/images/meme4.jpg",
+          alt: "Confused programmer meme",
+        },
+        {
+          type: "image",
+          content: "/static/images/meme5.jpg",
+          alt: "It works on my machine meme",
+        },
+        {
+          type: "image",
+          content: "/static/images/meme6.jpg",
+          alt: "99 little bugs in the code meme",
+        },
+      ];
+
+      function addChaosElement(element, index) {
+        const div = document.createElement("div");
+        div.classList.add("element");
+
+        const rotation = Math.random() * 20 - 10;
+        div.style.setProperty("--rotation", `${rotation}deg`);
+
+        const top = Math.random() * 350;
+        const left = Math.random() * 80;
+        div.style.top = `${top}vh`;
+        div.style.left = `${left}vw`;
+
+        if (element.type === "text") {
+          div.textContent = element.content;
+        } else if (element.type === "image") {
+          const img = document.createElement("img");
+          img.src = element.content;
+          img.alt = element.alt;
+          img.classList.add("meme");
+          img.style.setProperty("--rotation", `${rotation}deg`);
+          div.appendChild(img);
+        }
+
+        div.addEventListener("mouseover", () => {
+          const newTop = Math.random() * 350;
+          const newLeft = Math.random() * 80;
+          div.style.top = `${newTop}vh`;
+          div.style.left = `${newLeft}vw`;
+        });
+
+        chaosContainer.appendChild(div);
+      }
+
+      // Add more elements to fill the page
+      for (let i = 0; i < 3; i++) {
+        elements.forEach(addChaosElement);
+      }
+
+      // Konami Code Easter Egg
+      let konamiCode = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ];
+      let konamiIndex = 0;
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            alert(
+              "You've unlocked the secret Arch power! Your system is now unbreakable... just kidding, it's Arch!",
+            );
+            createFireworks(50);
+            konamiIndex = 0;
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
+
+      // Pacman follows cursor
+      document.addEventListener("mousemove", (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        pacman.style.left = x + "px";
+        pacman.style.top = y + "px";
+      });
+
+      // Matrix rain
+      const canvas = document.getElementById("matrix-rain");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const katakana =
+        "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン";
+      const latin = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const nums = "0123456789";
+      const alphabet = katakana + latin + nums;
+
+      const fontSize = 24;
+      const columns = canvas.width / fontSize;
+
+      const rainDrops = Array(Math.floor(columns)).fill(1);
+
+      function draw() {
+        ctx.fillStyle = "rgba(26, 27, 38, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < rainDrops.length; i++) {
+          const text = alphabet.charAt(
+            Math.floor(Math.random() * alphabet.length),
+          );
+          ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+          if (
+            rainDrops[i] * fontSize > canvas.height &&
+            Math.random() > 0.975
+          ) {
+            rainDrops[i] = 0;
+          }
+          rainDrops[i]++;
+        }
+      }
+
+      setInterval(draw, 30);
+
+      // Create fireworks
+      function createFireworks(amount) {
+        for (let i = 0; i < amount; i++) {
+          setTimeout(() => {
+            const firework = document.createElement("div");
+            firework.classList.add("firework");
+            firework.style.left = Math.random() * window.innerWidth + "px";
+            firework.style.top = Math.random() * window.innerHeight + "px";
+            firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1000);
+          }, i * 100);
+        }
+      }
+
+      // Trigger fireworks randomly
+      setInterval(() => {
+        if (Math.random() > 0.99) {
+          createFireworks(20);
+        }
+      }, 1000);
+
+      // Click counter easter egg
+      let clickCount = 0;
+      document.addEventListener("click", (e) => {
+        clickCount++;
+        if (clickCount === 10) {
+          alert(
+            "Wow, you've clicked 10 times! You must really like this website. Or you're just bored. Probably the latter.",
+          );
+          document.body.style.transform = "rotate(180deg)";
+          setTimeout(() => {
+            document.body.style.transform = "none";
+            clickCount = 0;
+          }, 5000);
+        }
+      });
+
+      // Loading messages
+      const loadingMessages = [
+        "Compiling memes...",
+        "Generating random excuses...",
+        "Reticulating splines...",
+        "Updating to Arch Linux 2.0...",
+        "Drinking coffee to stay awake...",
+        "Trying to catch the bugs...",
+        "Negotiating with the AI overlords...",
+        "Downloading more RAM...",
+        "Deleting System32 (just kidding)...",
+        "Questioning life choices...",
+      ];
+
+      function showLoadingMessage() {
+        const loadingElement = document.createElement("div");
+        loadingElement.id = "loading-message";
+        document.body.appendChild(loadingElement);
+
+        let messageIndex = 0;
+        const intervalId = setInterval(() => {
+          loadingElement.textContent = loadingMessages[messageIndex];
+          messageIndex = (messageIndex + 1) % loadingMessages.length;
+        }, 2000);
+
+        setTimeout(() => {
+          clearInterval(intervalId);
+          loadingElement.remove();
+        }, 10000);
+      }
+
+      window.addEventListener("load", showLoadingMessage);
+
+      // TODO: Remember to remove this comment before production. Oh wait, this is production!
+    </script>
+  </body>
+</html>
